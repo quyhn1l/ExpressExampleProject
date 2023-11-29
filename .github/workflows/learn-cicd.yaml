@@ -1,0 +1,14 @@
+name: learn-github-actions
+run-name: : ${{github.actor}} is leanrning Github Actions
+on: [push]
+jons:
+  check-bats-versions:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: action/setup-node@v3
+      with:
+        node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
